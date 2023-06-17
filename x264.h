@@ -702,11 +702,11 @@ static const char * const x264_preset_names[] = { "ultrafast", "superfast", "ver
  *      100 times faster than placebo!
  *
  *      Currently available tunings are: */
-static const char * const x264_tune_names[] = { "film", "animation", "grain", "stillimage", "psnr", "ssim", "fastdecode", "zerolatency", 0 };
+static const char * const x264_tune_names[] = { "simple", "film", "animation", "grain", "stillimage", "psnr", "ssim", "fastdecode", "zerolatency", 0 };
 
 /*      Multiple tunings can be used if separated by a delimiter in ",./-+",
  *      however multiple psy tunings cannot be used.
- *      film, animation, grain, stillimage, psnr, and ssim are psy tunings.
+ *      simple, film, animation, grain, stillimage, psnr, and ssim are psy tunings.
  *
  *      returns 0 on success, negative on failure (e.g. invalid preset/tune name). */
 X264_API int x264_param_default_preset( x264_param_t *, const char *preset, const char *tune );

@@ -665,7 +665,7 @@ static void help( x264_param_t *defaults, int longhelp )
         "                                    --bframes 0 --force-cfr --no-mbtree\n"
         "                                    --sync-lookahead 0 --sliced-threads\n"
         "                                    --rc-lookahead 0\n" );
-    else H0( "                                  - psy tunings: film,animation,grain,\n"
+    else H0( "                                  - psy tunings: simple,film,animation,grain,\n"
              "                                                 stillimage,psnr,ssim\n"
              "                                  - other tunings: fastdecode,zerolatency\n" );
     H2( "      --slow-firstpass        Don't force these faster settings with --pass 1:\n"

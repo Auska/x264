@@ -692,6 +692,25 @@ static int param_apply_tune( x264_param_t *param, const char *tune )
             if( param->analyse.inter & X264_ANALYSE_PSUB16x16 )
                 param->analyse.inter |= X264_ANALYSE_PSUB8x8;
         }
+        else if( len == 6 && !strncasecmp( tune, "simple", 6 ) )
+        {
+            if( psy_tuning_used++ ) goto psy_failure;
+            param->analyse.b_fast_pskip = 0;
+            param->analyse.b_weighted_bipred = 1;
+            param->i_bframe = 12;
+            param->i_frame_reference = 3;
+            param->rc.i_lookahead = 90;
+            param->rc.i_qp_min = 9;
+            param->analyse.i_chroma_qp_offset = -2;
+            param->rc.i_aq_mode = 2;
+            param->rc.f_aq_strength = 0.7;
+            param->analyse.i_trellis = 2;
+            param->i_deblocking_filter_alphac0 = 0;
+            param->i_deblocking_filter_beta = 0;
+            param->analyse.f_psy_rd = 0.77;
+            param->analyse.f_psy_trellis = 0.22;
+            param->analyse.i_noise_reduction = 4;
+        }
         else
         {
             x264_log_internal( X264_LOG_ERROR, "invalid tune '%.*s'\n", len, tune );
