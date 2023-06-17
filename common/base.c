@@ -709,7 +709,7 @@ static int param_apply_tune( x264_param_t *param, const char *tune )
             param->i_deblocking_filter_beta = 0;
             param->analyse.f_psy_rd = 0.77;
             param->analyse.f_psy_trellis = 0.22;
-            param->analyse.i_noise_reduction = 4;
+            param->analyse.i_noise_reduction = 8;
         }
         else
         {
