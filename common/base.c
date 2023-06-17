@@ -702,7 +702,7 @@ static int param_apply_tune( x264_param_t *param, const char *tune )
             param->rc.i_lookahead = 90;
             param->rc.i_qp_min = 9;
             param->analyse.i_chroma_qp_offset = -2;
-            param->rc.i_aq_mode = 2;
+            param->rc.i_aq_mode = 3;
             param->rc.f_aq_strength = 0.7;
             param->analyse.i_trellis = 2;
             param->i_deblocking_filter_alphac0 = 0;
