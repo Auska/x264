@@ -695,9 +695,16 @@ static int param_apply_tune( x264_param_t *param, const char *tune )
         else if( len == 6 && !strncasecmp( tune, "simple", 6 ) )
         {
             if( psy_tuning_used++ ) goto psy_failure;
+            param->analyse.i_me_method = X264_ME_UMH;
+            param->analyse.i_subpel_refine = 9;
+            param->analyse.i_me_range = 48;
             param->analyse.b_fast_pskip = 0;
+            param->analyse.i_direct_mv_pred = X264_DIRECT_PRED_AUTO;
             param->analyse.b_weighted_bipred = 1;
+            param->i_keyint_max = 360;
+            param->i_keyint_min = 5;
             param->i_bframe = 12;
+            param->i_bframe_adaptive = X264_B_ADAPT_TRELLIS;
             param->i_frame_reference = 3;
             param->rc.i_lookahead = 90;
             param->rc.i_qp_min = 9;
